@@ -13,6 +13,7 @@ import ch.makery.address.view.PersonEditDialogController;
 import ch.makery.address.view.PersonOverviewController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.image.Image;
 import javafx.stage.Modality;
 
 public class MainApp extends Application {
@@ -49,6 +50,9 @@ public class MainApp extends Application {
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("AddressApp");
+
+        // Set the application icon.
+        this.primaryStage.getIcons().add(new Image("file:resources/images/address_book_icon.png"));
 
         initRootLayout();
 
