@@ -2,13 +2,13 @@
 <jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="JavaFXTutorial.jnlp">
   <information>
     <title>JavaFXTutorial</title>
-    <vendor>Aluno</vendor>
+    <vendor>Leonardo Gomide</vendor>
     <description>null</description>
     <offline-allowed/>
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="JavaFXTutorial.jar" size="19604" download="eager" />
+    <jar href="JavaFXTutorial.jar" size="22121" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="JavaFXTutorial" >
     <param name="requiredFXVersion" value="8.0+"/>
