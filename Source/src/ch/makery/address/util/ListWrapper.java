@@ -1,4 +1,4 @@
-package ch.makery.address.model;
+package ch.makery.address.util;
 
 import java.util.List;
 import javax.xml.bind.annotation.XmlElement;
@@ -10,17 +10,17 @@ import javax.xml.bind.annotation.XmlRootElement;
  * 
  * @author Marco Jakob
  */
-@XmlRootElement(name = "persons")
-public class PersonListWrapper {
-
-    private List<Person> persons;
+@XmlRootElement
+public class ListWrapper <T>{
+    
+    private List<T> list;
 
     @XmlElement(name = "person")
-    public List<Person> getPersons() {
-        return persons;
+    public List<T> getList() {
+        return list;
     }
 
-    public void setPersons(List<Person> persons) {
-        this.persons = persons;
+    public void setList(List<T> list) {
+        this.list = list;
     }
 }

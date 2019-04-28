@@ -26,7 +26,7 @@ public class BirthdayStatisticsController {
     @FXML
     private CategoryAxis xAxis;
 
-    private ObservableList<String> monthNames = FXCollections.observableArrayList();
+    private final ObservableList<String> monthNames = FXCollections.observableArrayList();
 
     /**
      * Inicializa a classe controller. Eeste método é chamado automaticamente

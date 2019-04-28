@@ -35,8 +35,8 @@ public class PersonOverviewController {
     private Label cityLabel;
     @FXML
     private Label birthdayLabel;
-    private ObservableList<Person> personData = FXCollections.observableArrayList();
     
+    private ObservableList<Person> personData = FXCollections.observableArrayList();
     private PersonDataManager personDataManager;
     private StageManager stageManager;
 

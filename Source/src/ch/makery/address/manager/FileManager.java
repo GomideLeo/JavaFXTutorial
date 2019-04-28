@@ -6,11 +6,13 @@
 package ch.makery.address.manager;
 
 import ch.makery.address.MainApp;
-import ch.makery.address.model.PersonListWrapper;
+import ch.makery.address.model.Person;
+import ch.makery.address.util.ListWrapper;
 import java.io.File;
 import java.util.prefs.Preferences;
 import javafx.scene.control.Alert;
 import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
@@ -61,14 +63,14 @@ public class FileManager {
     public void loadPersonDataFromFile(File file) {
         try {
             JAXBContext context = JAXBContext
-                    .newInstance(PersonListWrapper.class);
+                    .newInstance(ListWrapper.class);
             Unmarshaller um = context.createUnmarshaller();
 
             // Reading XML from the file and unmarshalling.
-            PersonListWrapper wrapper = (PersonListWrapper) um.unmarshal(file);
+            ListWrapper <Person> wrapper = (ListWrapper <Person>) um.unmarshal(file);
 
             personDataManager.clearPersonData();
-            personDataManager.addAllPersonData(wrapper.getPersons());
+            personDataManager.addAllPersonData(wrapper.getList());
 
             // Save the file path to the registry.
             setPersonFilePath(file);
@@ -84,20 +86,20 @@ public class FileManager {
     public void savePersonDataToFile(File file) {
         try {
             JAXBContext context = JAXBContext
-                    .newInstance(PersonListWrapper.class);
+                    .newInstance(ListWrapper.class);
             Marshaller m = context.createMarshaller();
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
             // Envolvendo nossos dados da pessoa.
-            PersonListWrapper wrapper = new PersonListWrapper();
-            wrapper.setPersons(personDataManager.getPersonData());
+            ListWrapper <Person> wrapper = new ListWrapper();
+            wrapper.setList(personDataManager.getPersonData());
 
             // Enpacotando e salvando XML  no arquivo.
             m.marshal(wrapper, file);
 
             // Saalva o caminho do arquivo no registro.
             setPersonFilePath(file);
-        } catch (Exception e) { // catches ANY exception
+        } catch (JAXBException e) { // catches ANY exception
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Erro");
             alert.setHeaderText("Não foi possível salvar os dados do arquivo "+file.getPath());
