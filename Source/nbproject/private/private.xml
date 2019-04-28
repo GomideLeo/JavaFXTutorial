@@ -3,14 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/leocg/Documents/NetBeansProjects/JavaFXTutorial/Source/src/ch/makery/address/model/PersonListWrapper.java</file>
-            <file>file:/D:/leocg/Documents/NetBeansProjects/JavaFXTutorial/Source/src/ch/makery/address/view/BirthdayStatistics.fxml</file>
+            <file>file:/D:/leocg/Documents/NetBeansProjects/JavaFXTutorial/Source/src/ch/makery/address/manager/PersonDataManager.java</file>
             <file>file:/D:/leocg/Documents/NetBeansProjects/JavaFXTutorial/Source/src/ch/makery/address/MainApp.java</file>
-            <file>file:/D:/leocg/Documents/NetBeansProjects/JavaFXTutorial/Source/src/ch/makery/address/view/RootLayoutController.java</file>
-            <file>file:/D:/leocg/Documents/NetBeansProjects/JavaFXTutorial/Source/src/ch/makery/address/util/LocalDateAdapter.java</file>
-            <file>file:/D:/leocg/Documents/NetBeansProjects/JavaFXTutorial/Source/src/ch/makery/address/view/BirthdayStatisticsController.java</file>
-            <file>file:/D:/leocg/Documents/NetBeansProjects/JavaFXTutorial/Source/src/ch/makery/address/view/RootLayout.fxml</file>
+            <file>file:/D:/leocg/Documents/NetBeansProjects/JavaFXTutorial/Source/src/ch/makery/address/view/PersonOverviewController.java</file>
             <file>file:/D:/leocg/Documents/NetBeansProjects/JavaFXTutorial/Source/src/ch/makery/address/model/Person.java</file>
+            <file>file:/D:/leocg/Documents/NetBeansProjects/JavaFXTutorial/Source/src/ch/makery/address/manager/StageManager.java</file>
+            <file>file:/D:/leocg/Documents/NetBeansProjects/JavaFXTutorial/Source/src/ch/makery/address/manager/FileManager.java</file>
         </group>
     </open-files>
 </project-private>

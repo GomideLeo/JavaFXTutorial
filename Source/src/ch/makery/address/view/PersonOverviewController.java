@@ -5,8 +5,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import ch.makery.address.MainApp;
+import ch.makery.address.manager.FileManager;
 import ch.makery.address.model.Person;
 import ch.makery.address.util.DateUtil;
+import ch.makery.address.manager.PersonDataManager;
+import ch.makery.address.manager.StageManager;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
@@ -30,20 +35,21 @@ public class PersonOverviewController {
     private Label cityLabel;
     @FXML
     private Label birthdayLabel;
+    private ObservableList<Person> personData = FXCollections.observableArrayList();
     
-    private MainApp mainApp;
+    private PersonDataManager personDataManager;
+    private StageManager stageManager;
 
     
     public PersonOverviewController() {
+        personDataManager = PersonDataManager.getInstance();
+        stageManager = StageManager.getInstance();
+        
     }
 
-    /**
-     * Inicializa a classe controller. Este método é chamado automaticamente
-     *  após o arquivo fxml ter sido carregado.
-     */
     @FXML
     private void initialize() {
-        // Inicializa a tabela de pessoas com duas colunas.
+        personTable.setItems(personDataManager.getPersonData());
         firstNameColumn.setCellValueFactory(
                 cellData -> cellData.getValue().firstNameProperty());
         lastNameColumn.setCellValueFactory(
@@ -57,17 +63,6 @@ public class PersonOverviewController {
                 (observable, oldValue, newValue) -> showPersonDetails(newValue));
     }
 
-        /**
-         * É chamado pela aplicação principal para dar uma referência de volta a si mesmo.
-         * 
-         * @param mainApp
-         */
-        public void setMainApp(MainApp mainApp) {
-            this.mainApp = mainApp;
-
-            // Adiciona os dados da observable list na tabela
-            personTable.setItems(mainApp.getPersonData());
-        }
     
     private void showPersonDetails(Person person) {
         if (person != null) {
@@ -97,9 +92,9 @@ public class PersonOverviewController {
     @FXML
     private void handleNewPerson() {
         Person tempPerson = new Person();
-        boolean okClicked = mainApp.showPersonEditDialog(tempPerson);
+        boolean okClicked = stageManager.showPersonEditDialog(tempPerson);
         if (okClicked) {
-            mainApp.getPersonData().add(tempPerson);
+            personDataManager.addPersonData(tempPerson);
         }
     }
 
@@ -111,7 +106,7 @@ public class PersonOverviewController {
     private void handleEditPerson() {
         Person selectedPerson = personTable.getSelectionModel().getSelectedItem();
         if (selectedPerson != null) {
-            boolean okClicked = mainApp.showPersonEditDialog(selectedPerson);
+            boolean okClicked = stageManager.showPersonEditDialog(selectedPerson);
             if (okClicked) {
                 showPersonDetails(selectedPerson);
             }

@@ -8,8 +8,11 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="JavaFXTutorial.jar" size="22690" download="eager" />
+    <jar href="JavaFXTutorial.jar" size="26756" download="eager" />
   </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="JavaFXTutorial" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
   <jfx:javafx-desc  width="800" height="600" main-class="ch.makery.address.MainApp"  name="JavaFXTutorial" />
   <update check="always"/>
 </jnlp>
