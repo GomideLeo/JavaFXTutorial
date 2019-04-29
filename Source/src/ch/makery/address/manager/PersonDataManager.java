@@ -10,10 +10,6 @@ import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-/**
- *
- * @author leocg
- */
 public class PersonDataManager {
     
     private ObservableList<Person> personData = FXCollections.observableArrayList();

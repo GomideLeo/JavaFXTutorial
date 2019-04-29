@@ -3,7 +3,6 @@ package ch.makery.address.view;
 import java.io.File;
 import javafx.fxml.FXML;
 import javafx.stage.FileChooser;
-import ch.makery.address.MainApp;
 import ch.makery.address.manager.FileManager;
 import ch.makery.address.manager.PersonDataManager;
 import ch.makery.address.manager.StageManager;

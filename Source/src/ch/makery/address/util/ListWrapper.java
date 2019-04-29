@@ -1,6 +1,7 @@
 package ch.makery.address.util;
 
 import java.util.List;
+import javax.xml.bind.annotation.XmlAnyElement;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -15,7 +16,7 @@ public class ListWrapper <T>{
     
     private List<T> list;
 
-    @XmlElement(name = "person")
+    @XmlElement
     public List<T> getList() {
         return list;
     }

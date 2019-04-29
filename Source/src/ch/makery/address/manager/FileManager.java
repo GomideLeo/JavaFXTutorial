@@ -15,6 +15,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
+import javax.xml.bind.annotation.XmlSeeAlso;
 
 /**
  *
@@ -103,6 +104,7 @@ public class FileManager {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Erro");
             alert.setHeaderText("Não foi possível salvar os dados do arquivo "+file.getPath());
+            System.out.println(e.getErrorCode()+"\n"+e.getLocalizedMessage()+"\n"+e.getMessage()+"\n"+e.toString());
             alert.setContentText(e.getMessage());
 
             alert.showAndWait();
