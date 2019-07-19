@@ -69,6 +69,10 @@ public class StageManager {
         stage.setTitle(title);
     }
     
+    public void setPrimaryStageTitle (String title) {
+        primaryStage.setTitle(title);
+    }
+    
     public void setStageIcon (Image icon){
         this.primaryStage.getIcons().add(icon);
     }

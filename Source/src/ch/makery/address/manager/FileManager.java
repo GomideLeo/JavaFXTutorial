@@ -52,12 +52,12 @@ public class FileManager {
             prefs.put("filePath", file.getPath());
 
             // Update the stage title.
-            stageManager.setStageTitle(stageManager.getPrimaryStage(), "AddressApp - " + file.getName());
+            stageManager.setPrimaryStageTitle("AddressApp - " + file.getName());
         } else {
             prefs.remove("filePath");
 
             // Update the stage title.
-            stageManager.setStageTitle(stageManager.getPrimaryStage(), "AdressApp");
+            stageManager.setPrimaryStageTitle("AdressApp");
         }
     }
     
