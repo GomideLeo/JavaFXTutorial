@@ -3,9 +3,9 @@ package ch.makery.address.view;
 import java.io.File;
 import javafx.fxml.FXML;
 import javafx.stage.FileChooser;
-import ch.makery.address.manager.FileManager;
-import ch.makery.address.manager.PersonDataManager;
-import ch.makery.address.manager.StageManager;
+import ch.makery.address.model.manager.FileManager;
+import ch.makery.address.model.manager.PersonDataManager;
+import ch.makery.address.model.manager.StageManager;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
@@ -32,7 +32,6 @@ public class RootLayoutController {
     @FXML
     private void handleNew() {
         personDataManager.clearPersonData();
-        fileManager.setPersonFilePath(null);
     }
 
     @FXML

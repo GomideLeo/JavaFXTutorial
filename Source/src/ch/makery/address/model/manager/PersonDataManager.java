@@ -3,36 +3,36 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ch.makery.address.manager;
+package ch.makery.address.model.manager;
 
 import ch.makery.address.model.Person;
 import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import ch.makery.address.model.dao.PersonDAO;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class PersonDataManager {
     
-    private ObservableList<Person> personData = FXCollections.observableArrayList();
+    private List<Person> personData = FXCollections.observableArrayList();
+    private final PersonDAO personDAO = PersonDAO.getInstance();
     private static final PersonDataManager instance = new PersonDataManager();
     
     
     private PersonDataManager(){
-        personData.add(new Person("Hans", "Muster"));
-        personData.add(new Person("Ruth", "Mueller"));
-        personData.add(new Person("Heinz", "Kurz"));
-        personData.add(new Person("Cornelia", "Meier"));
-        personData.add(new Person("Werner", "Meyer"));
-        personData.add(new Person("Lydia", "Kunz"));
-        personData.add(new Person("Anna", "Best"));
-        personData.add(new Person("Stefan", "Meier"));
-        personData.add(new Person("Martin", "Mueller"));
+        try {
+            personData.addAll(personDAO.listAll());
+        } catch (Exception ex) {
+            Logger.getLogger(PersonDataManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public static PersonDataManager getInstance(){
         return instance;
     }
     
-    public ObservableList<Person> getPersonData() {
+    public List<Person> getPersonData() {
         return personData;
     }
     

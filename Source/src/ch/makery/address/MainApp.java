@@ -1,7 +1,7 @@
 package ch.makery.address;
 
-import ch.makery.address.manager.FileManager;
-import ch.makery.address.manager.StageManager;
+import ch.makery.address.model.manager.FileManager;
+import ch.makery.address.model.manager.StageManager;
 
 import javafx.application.Application;
 import javafx.stage.Stage;

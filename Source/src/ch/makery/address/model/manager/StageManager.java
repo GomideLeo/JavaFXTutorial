@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ch.makery.address.manager;
+package ch.makery.address.model.manager;
 
 import ch.makery.address.MainApp;
 import ch.makery.address.model.Person;

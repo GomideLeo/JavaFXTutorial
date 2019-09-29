@@ -5,11 +5,14 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import ch.makery.address.MainApp;
-import ch.makery.address.manager.FileManager;
+import ch.makery.address.model.manager.FileManager;
 import ch.makery.address.model.Person;
+import ch.makery.address.model.dao.PersonDAO;
 import ch.makery.address.util.DateUtil;
-import ch.makery.address.manager.PersonDataManager;
-import ch.makery.address.manager.StageManager;
+import ch.makery.address.model.manager.PersonDataManager;
+import ch.makery.address.model.manager.StageManager;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
@@ -39,17 +42,18 @@ public class PersonOverviewController {
     private ObservableList<Person> personData = FXCollections.observableArrayList();
     private PersonDataManager personDataManager;
     private StageManager stageManager;
+    private PersonDAO personDAO;
 
     
     public PersonOverviewController() {
         personDataManager = PersonDataManager.getInstance();
         stageManager = StageManager.getInstance();
-        
+        personDAO = PersonDAO.getInstance();
     }
 
     @FXML
     private void initialize() {
-        personTable.setItems(personDataManager.getPersonData());
+        personTable.setItems((ObservableList<Person>) personDataManager.getPersonData());
         firstNameColumn.setCellValueFactory(
                 cellData -> cellData.getValue().firstNameProperty());
         lastNameColumn.setCellValueFactory(
@@ -95,6 +99,7 @@ public class PersonOverviewController {
         boolean okClicked = stageManager.showPersonEditDialog(tempPerson);
         if (okClicked) {
             personDataManager.addPersonData(tempPerson);
+            
         }
     }
 

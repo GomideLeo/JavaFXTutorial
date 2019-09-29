@@ -1,4 +1,4 @@
-package ch.makery.address.util;
+package ch.makery.address.model;
 
 import java.util.List;
 import javax.xml.bind.annotation.XmlAnyElement;

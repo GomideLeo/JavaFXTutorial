@@ -8,7 +8,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
 import ch.makery.address.model.Person;
+import ch.makery.address.model.dao.PersonDAO;
 import ch.makery.address.util.DateUtil;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Dialog para editar detalhes de uma pessoa.
@@ -33,6 +36,9 @@ public class PersonEditDialogController {
 
     private Stage dialogStage;
     private Person person;
+    private PersonDAO personDAO;
+    private String formerFirstName = person.getFirstName();
+    private String formerLastName = person.getLastName();
     private boolean okClicked = false;
 
     /**
@@ -41,6 +47,7 @@ public class PersonEditDialogController {
      */
     @FXML
     private void initialize() {
+        personDAO = PersonDAO.getInstance();
     }
 
     /**
@@ -91,6 +98,12 @@ public class PersonEditDialogController {
             person.setCity(cityField.getText());
             person.setBirthday(DateUtil.parse(birthdayField.getText()));
 
+            try {
+                personDAO.update(formerFirstName, formerLastName, person);
+            } catch (Exception ex) {
+                Logger.getLogger(PersonEditDialogController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
             okClicked = true;
             dialogStage.close();
         }
