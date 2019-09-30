@@ -96,11 +96,8 @@ public class PersonOverviewController {
     @FXML
     private void handleNewPerson() {
         Person tempPerson = new Person();
-        boolean okClicked = stageManager.showPersonEditDialog(tempPerson);
-        if (okClicked) {
-            personDataManager.addPersonData(tempPerson);
-            
-        }
+        stageManager.showPersonEditDialog(tempPerson, true);
+        personDataManager.addPersonData(tempPerson);
     }
 
     /**
@@ -111,7 +108,7 @@ public class PersonOverviewController {
     private void handleEditPerson() {
         Person selectedPerson = personTable.getSelectionModel().getSelectedItem();
         if (selectedPerson != null) {
-            boolean okClicked = stageManager.showPersonEditDialog(selectedPerson);
+            boolean okClicked = stageManager.showPersonEditDialog(selectedPerson, false);
             if (okClicked) {
                 showPersonDetails(selectedPerson);
             }

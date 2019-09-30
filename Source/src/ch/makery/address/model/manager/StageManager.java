@@ -119,7 +119,7 @@ public class StageManager {
         }
     }
     
-    public boolean showPersonEditDialog(Person person) {
+    public boolean showPersonEditDialog(Person person, boolean isNewPerson) {
         try {
             // Carrega o arquivo fxml e cria um novo stage para a janela popup.
             FXMLLoader loader = new FXMLLoader();
@@ -137,7 +137,7 @@ public class StageManager {
             // Define a pessoa no controller.
             PersonEditDialogController controller = loader.getController();
             controller.setDialogStage(dialogStage);
-            controller.setPerson(person);
+            controller.setPerson(person, isNewPerson);
 
             // Mostra a janela e espera até o usuário fechar.
             dialogStage.showAndWait();

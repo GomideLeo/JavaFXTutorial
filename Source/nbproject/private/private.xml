@@ -3,14 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/leocg/Documents/NetBeansProjects/JavaFXTutorial/Source/src/ch/makery/address/util/ListWrapper.java</file>
+            <file>file:/D:/leocg/Documents/NetBeansProjects/JavaFXTutorial/Source/src/ch/makery/address/model/manager/FileManager.java</file>
             <file>file:/D:/leocg/Documents/NetBeansProjects/JavaFXTutorial/Source/src/ch/makery/address/MainApp.java</file>
-            <file>file:/D:/leocg/Documents/NetBeansProjects/JavaFXTutorial/Source/src/ch/makery/address/view/RootLayoutController.java</file>
-            <file>file:/D:/leocg/Documents/NetBeansProjects/JavaFXTutorial/Source/src/ch/makery/address/manager/PersonDataManager.java</file>
             <file>file:/D:/leocg/Documents/NetBeansProjects/JavaFXTutorial/Source/src/ch/makery/address/view/PersonOverviewController.java</file>
-            <file>file:/D:/leocg/Documents/NetBeansProjects/JavaFXTutorial/Source/src/ch/makery/address/manager/StageManager.java</file>
+            <file>file:/D:/leocg/Documents/NetBeansProjects/JavaFXTutorial/Source/src/ch/makery/address/model/dao/PersonDAO.java</file>
+            <file>file:/D:/leocg/Documents/NetBeansProjects/JavaFXTutorial/Source/src/ch/makery/address/model/manager/StageManager.java</file>
             <file>file:/D:/leocg/Documents/NetBeansProjects/JavaFXTutorial/Source/src/ch/makery/address/view/PersonEditDialogController.java</file>
-            <file>file:/D:/leocg/Documents/NetBeansProjects/JavaFXTutorial/Source/src/ch/makery/address/manager/FileManager.java</file>
+            <file>file:/D:/leocg/Documents/NetBeansProjects/JavaFXTutorial/Source/src/ch/makery/address/util/db/javafxtutorial.sql</file>
+            <file>file:/D:/leocg/Documents/NetBeansProjects/JavaFXTutorial/Source/src/ch/makery/address/model/manager/PersonDataManager.java</file>
+            <file>file:/D:/leocg/Documents/NetBeansProjects/JavaFXTutorial/Source/src/ch/makery/address/util/db/MySQLConnection.java</file>
         </group>
     </open-files>
 </project-private>

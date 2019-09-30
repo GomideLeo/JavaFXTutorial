@@ -34,11 +34,10 @@ public class PersonEditDialogController {
     private TextField birthdayField;
 
 
+    private boolean isNewPerson;
     private Stage dialogStage;
     private Person person;
     private PersonDAO personDAO;
-    private String formerFirstName = person.getFirstName();
-    private String formerLastName = person.getLastName();
     private boolean okClicked = false;
 
     /**
@@ -64,8 +63,9 @@ public class PersonEditDialogController {
      * 
      * @param person
      */
-    public void setPerson(Person person) {
+    public void setPerson(Person person, boolean isNewPerson) {
         this.person = person;
+        this.isNewPerson = isNewPerson;
 
         firstNameField.setText(person.getFirstName());
         lastNameField.setText(person.getLastName());
@@ -91,19 +91,37 @@ public class PersonEditDialogController {
     @FXML
     private void handleOk() {
         if (isInputValid()) {
-            person.setFirstName(firstNameField.getText());
-            person.setLastName(lastNameField.getText());
-            person.setStreet(streetField.getText());
-            person.setPostalCode(Integer.parseInt(postalCodeField.getText()));
-            person.setCity(cityField.getText());
-            person.setBirthday(DateUtil.parse(birthdayField.getText()));
+            if(isNewPerson){
+                person.setFirstName(firstNameField.getText());
+                person.setLastName(lastNameField.getText());
+                person.setStreet(streetField.getText());
+                person.setPostalCode(Integer.parseInt(postalCodeField.getText()));
+                person.setCity(cityField.getText());
+                person.setBirthday(DateUtil.parse(birthdayField.getText()));
+                
+                try {
+                    personDAO.insert(person);
+                } catch (Exception ex) {
+                    Logger.getLogger(PersonEditDialogController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+            }else{
+                String formerFirstName = person.getFirstName();
+                String formerLastName = person.getLastName();
+    
+                person.setFirstName(firstNameField.getText());
+                person.setLastName(lastNameField.getText());
+                person.setStreet(streetField.getText());
+                person.setPostalCode(Integer.parseInt(postalCodeField.getText()));
+                person.setCity(cityField.getText());
+                person.setBirthday(DateUtil.parse(birthdayField.getText()));
 
-            try {
-                personDAO.update(formerFirstName, formerLastName, person);
-            } catch (Exception ex) {
-                Logger.getLogger(PersonEditDialogController.class.getName()).log(Level.SEVERE, null, ex);
+                try {
+                    personDAO.update(formerFirstName, formerLastName, person);
+                } catch (Exception ex) {
+                    Logger.getLogger(PersonEditDialogController.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-            
             okClicked = true;
             dialogStage.close();
         }
@@ -171,4 +189,5 @@ public class PersonEditDialogController {
             return false;
         }
     }
+
 }
