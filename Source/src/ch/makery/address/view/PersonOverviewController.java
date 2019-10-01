@@ -132,6 +132,13 @@ public class PersonOverviewController {
        int selectedIndex = personTable.getSelectionModel().getSelectedIndex();
        if (selectedIndex >= 0) {
            personTable.getItems().remove(selectedIndex);
+           String firstName = personTable.getItems().get(selectedIndex).getFirstName();
+           String lastName = personTable.getItems().get(selectedIndex).getLastName();
+           try {
+               personDAO.remove(firstName, lastName);
+           } catch (Exception ex) {
+               Logger.getLogger(PersonOverviewController.class.getName()).log(Level.SEVERE, null, ex);
+           }
        } else {
            // Nada selecionado.
 

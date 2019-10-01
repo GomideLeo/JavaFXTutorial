@@ -5,6 +5,7 @@
         <group>
             <file>file:/D:/leocg/Documents/NetBeansProjects/JavaFXTutorial/Source/src/ch/makery/address/model/manager/FileManager.java</file>
             <file>file:/D:/leocg/Documents/NetBeansProjects/JavaFXTutorial/Source/src/ch/makery/address/MainApp.java</file>
+            <file>file:/D:/leocg/Documents/NetBeansProjects/JavaFXTutorial/Source/src/ch/makery/address/view/RootLayoutController.java</file>
             <file>file:/D:/leocg/Documents/NetBeansProjects/JavaFXTutorial/Source/src/ch/makery/address/view/PersonOverviewController.java</file>
             <file>file:/D:/leocg/Documents/NetBeansProjects/JavaFXTutorial/Source/src/ch/makery/address/model/dao/PersonDAO.java</file>
             <file>file:/D:/leocg/Documents/NetBeansProjects/JavaFXTutorial/Source/src/ch/makery/address/model/manager/StageManager.java</file>

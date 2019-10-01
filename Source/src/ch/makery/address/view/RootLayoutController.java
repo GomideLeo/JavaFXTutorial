@@ -1,11 +1,14 @@
 package ch.makery.address.view;
 
+import ch.makery.address.model.dao.PersonDAO;
 import java.io.File;
 import javafx.fxml.FXML;
 import javafx.stage.FileChooser;
 import ch.makery.address.model.manager.FileManager;
 import ch.makery.address.model.manager.PersonDataManager;
 import ch.makery.address.model.manager.StageManager;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
@@ -21,17 +24,24 @@ public class RootLayoutController {
     private PersonDataManager personDataManager;
     private StageManager stageManager;
     private FileManager fileManager;
+    private PersonDAO personDAO;
 
 
     public RootLayoutController(){
         personDataManager = PersonDataManager.getInstance();
         stageManager = StageManager.getInstance();
         fileManager = FileManager.getInstance();
+        personDAO = PersonDAO.getInstance();
     }
     
     @FXML
     private void handleNew() {
-        personDataManager.clearPersonData();
+        try {
+            personDataManager.clearPersonData();
+            personDAO.removeAll();
+        } catch (Exception ex) {
+            Logger.getLogger(RootLayoutController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
